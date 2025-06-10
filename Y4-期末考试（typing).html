@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year4 汉语考试</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+        }
+        body {
+            background-color: #f5f9ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e7ff;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #4a6cfa;
+            padding-bottom: 20px;
+        }
+        .school-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a3a9e;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .exam-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #2c4fbd;
+        }
+        .exam-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 16px;
+            color: #555;
+            margin-top: 15px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fbff;
+            border-radius: 10px;
+            border-left: 4px solid #4a6cfa;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1a3a9e;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: #4a6cfa;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        .question {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #2c4fbd;
+        }
+        .sentence {
+            font-size: 18px;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f0f5ff;
+            border-radius: 6px;
+        }
+        .answer-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #c2d1ff;
+            border-radius: 8px;
+            margin: 8px 0;
+            transition: border-color 0.3s;
+        }
+        .answer-input:focus {
+            border-color: #4a6cfa;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 108, 250, 0.2);
+        }
+        .blank {
+            display: inline-block;
+            min-width: 100px;
+            margin: 0 5px;
+            border-bottom: 2px dashed #4a6cfa;
+            padding: 0 5px;
+            position: relative;
+        }
+        .blank input {
+            width: 100%;
+            border: none;
+            text-align: center;
+            padding: 5px 0;
+            background: transparent;
+            font-size: 16px;
+        }
+        .blank input:focus {
+            outline: none;
+        }
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f0ff;
+            border-radius: 8px;
+        }
+        .word {
+            padding: 8px 15px;
+            background: #4a6cfa;
+            color: white;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        .essay-box {
+            width: 100%;
+            min-height: 200px;
+            padding: 20px;
+            font-size: 16px;
+            border: 2px solid #c2d1ff;
+            border-radius: 10px;
+            margin-top: 15px;
+            resize: vertical;
+        }
+        .essay-box:focus {
+            border-color: #4a6cfa;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 108, 250, 0.2);
+        }
+        .reference-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .reference-word {
+            padding: 5px 12px;
+            background: #e0e7ff;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e7ff;
+            color: #777;
+        }
+        .signature {
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .section {
+                padding: 15px;
+            }
+            .exam-details {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="school-name">British Mandarin International School</div>
+            <div class="exam-title">Final Exam - Year 4</div>
+            <div class="exam-details">
+                <div>Academic Year: 2024-2025</div>
+                <div>Term: 2</div>
+                <div>Date: June 11th, 2025</div>
+                <div>Duration: 60 minutes</div>
+            </div>
+            <div style="margin-top: 15px; font-weight: bold; color: #2c4fbd;">Course: Mandarin Language</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">4 重排词语成句 (Rearrange words to form sentences)</div>
+            
+            <div class="question">
+                <div class="question-title">1. 新鲜/三文鱼/的/今天/很。</div>
+                <div class="sentence">→ <input type="text" class="answer-input" placeholder="在这里输入完整的句子"></div>
+            </div>
+            
+            <div class="question">
+                <div class="question-title">2. 糖果/就/我/吃/从小/喜欢。</div>
+                <div class="sentence">→ <input type="text" class="answer-input" placeholder="在这里输入完整的句子"></div>
+            </div>
+            
+            <div class="question">
+                <div class="question-title">3. 总是/爷爷/跑步/早上/每天。</div>
+                <div class="sentence">→ <input type="text" class="answer-input" placeholder="在这里输入完整的句子"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">5 用方框中的词填空 (Fill in the blanks with words in the box)</div>
+            
+            <div class="word-bank">
+                <span class="word">除了</span>
+                <span class="word">以外</span>
+                <span class="word">贵</span>
+                <span class="word">超级市场</span>
+                <span class="word">便宜</span>
+                <span class="word">但是</span>
+                <span class="word">新鲜</span>
+                <span class="word">附近</span>
+                <span class="word">因为</span>
+            </div>
+            
+            <div class="sentence">
+                我们的新家 
+                <span class="blank"><input type="text" placeholder="空1"></span>
+                没有菜市场，所以我们要去 
+                <span class="blank"><input type="text" placeholder="空2"></span>
+                买东西。这家超级市场挺大的，
+                <span class="blank"><input type="text" placeholder="空3"></span>
+                卖吃的、喝的 
+                <span class="blank"><input type="text" placeholder="空4"></span>
+                ，还卖用的。
+                <span class="blank"><input type="text" placeholder="空5"></span>
+                ，妈妈说那里的蔬菜不 
+                <span class="blank"><input type="text" placeholder="空6"></span>
+                ，还比菜市场上卖的 
+                <span class="blank"><input type="text" placeholder="空7"></span>
+                很多。
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">7 描述图片 (Describe the picture)</div>
+            
+            <div class="question">
+                <div class="question-title">根据以下位置关系，描述图片中的布局：</div>
+                <div class="sentence">
+                    火车站在医院后面，医院右面是足球场。
+                </div>
+                
+                <div style="margin: 20px 0; text-align: center;">
+                    <div style="display: inline-block; padding: 20px; background: #e8f0ff; border-radius: 10px;">
+                        <div>公园</div>
+                        <div>电影院</div>
+                        <div>饭店</div>
+                        <div>超市</div>
+                        <div>餐厅</div>
+                        <div>停车场</div>
+                        <div>医院</div>
+                        <div>火车站</div>
+                        <div>足球场</div>
+                        <div>文具店</div>
+                        <div>水果店</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <div>参考词汇 (Words for reference):</div>
+                    <div class="reference-words">
+                        <span class="reference-word">a. 左面</span>
+                        <span class="reference-word">b. 右面</span>
+                        <span class="reference-word">c. 前面</span>
+                        <span class="reference-word">d. 后面</span>
+                        <span class="reference-word">e. 对面</span>
+                        <span class="reference-word">f. 隔壁</span>
+                        <span class="reference-word">g. 旁边</span>
+                        <span class="reference-word">h. 附近</span>
+                    </div>
+                </div>
+                
+                <textarea class="essay-box" placeholder="在这里描述图片中的位置关系..."></textarea>
+            </div>
+        </div>
+
+        <div class="signature">
+            I promise to abide by the "British Mandarin International School Examination Rules" and take exams with integrity. 
+            <div style="margin-top: 20px;">Signature: ________________________</div>
+        </div>
+
+        <div class="footer">
+            © 2025 British Mandarin International School - Year 4 Final Exam
+        </div>
+    </div>
+</body>
+</html>
